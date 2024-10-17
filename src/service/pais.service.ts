@@ -7,13 +7,13 @@ import { Country } from 'src/model/country';
   providedIn: 'root'
 })
 export class PaisService {
-  // Caminho JSON
-  private jsonURL = 'assets/data.json'; 
+  // Caminho endpoint back-end
+  private url = 'http://localhost:8080/countries'; 
 
   constructor(private http: HttpClient) { }
 
   // Obtém países
   getPaises(): Observable<Country[]> {
-    return this.http.get<Country[]>(this.jsonURL);
+    return this.http.get<Country[]>(this.url);
   }
 }
